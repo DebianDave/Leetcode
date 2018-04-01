@@ -1,0 +1,23 @@
+public class Solution {
+    public int UniqueMorseRepresentations(string[] words) {
+        string[] morseCode = new string[26]{".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+        List<string> l = new List<string>();
+        
+        foreach (string word in words)
+        {
+            string sum = "";
+            foreach (char c in word)
+            {
+                string t = morseCode[Convert.ToInt32(c) - 97];
+                sum += t.ToString();
+            }
+        
+            if(l.Contains(sum) == false)
+            {
+                l.Add(sum);
+            }
+        }
+        
+        return l.Count();
+    }
+}
