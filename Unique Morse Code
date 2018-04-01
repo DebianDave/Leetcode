@@ -1,0 +1,16 @@
+class Solution:
+    def uniqueMorseRepresentations(self, words):
+        """
+        :type words: List[str]
+        :rtype: int
+        """
+        alphabet = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
+        uniqueWords = set()
+        
+        for word in words:
+            wordInCode = ""
+            for char in word:
+                wordInCode += (alphabet[ord(char)-ord('a')])
+            uniqueWords.add(wordInCode)    
+        
+        return len(uniqueWords)
