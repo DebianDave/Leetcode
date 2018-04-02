@@ -1,0 +1,10 @@
+public class Solution {
+    public string ReverseWords(string s) {
+        List<string> reversed = new List<string>();
+        foreach(string word in s.Split(' '))
+        {
+            reversed.Add(new string(word.ToCharArray().Reverse().ToArray()));
+        }
+        return String.Join(" ", reversed);
+    }
+}
