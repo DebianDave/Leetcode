@@ -1,1 +1,30 @@
-
+public class Solution {
+    public bool JudgeCircle(string moves) 
+    {
+        if(moves.Length <= 1)
+        {
+            return false;
+        }
+        int vertical = 0;
+        int horizontal = 0;
+        foreach(var move in moves)
+        {
+            switch(move)
+            {
+                case 'U':
+                    vertical += 1;
+                    break;
+                case 'D':
+                    vertical -= 1;
+                    break;
+                case 'L':
+                    horizontal -= 1;
+                    break;
+                case 'R':
+                    horizontal += 1;
+                    break;
+            }
+        }
+    return horizontal == 0 && vertical == 0;
+    }
+}
