@@ -1,0 +1,18 @@
+class Solution:
+    def calPoints(self, ops):
+        """
+        :type ops: List[str]
+        :rtype: int
+        """
+        stack = []
+        for score in ops:
+            if(score == "C"):
+                if(len(stack)!=0):
+                    stack.pop()
+            elif(score == "+"):
+                stack.append(stack[-1]+stack[-2])
+            elif(score == "D"):
+                stack.append(stack[-1]*2)
+            else:
+                stack.append(int(score))
+        return sum(stack)
