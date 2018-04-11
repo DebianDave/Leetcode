@@ -1,0 +1,23 @@
+class Solution:
+    def numberOfLines(self, widths, S):
+        """
+        :type widths: List[int]
+        :type S: str
+        :rtype: List[int]
+        """
+        lines = 1
+        characters = 0
+        for letter in S:
+            characters+=widths[ord(letter)-ord("a")]
+            if characters > 100:
+                lines += 1
+                characters = widths[ord(letter)-ord("a")] 
+        
+        output = [lines,characters]
+        
+        return output
+        
+                
+        
+        
+        
