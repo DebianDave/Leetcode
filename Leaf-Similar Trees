@@ -13,14 +13,7 @@ public class Solution
         }
         return values;
     }
-    public bool CompareLists(List<int> tree1, List<int> tree2)
-    {
-        if (tree1.Count != tree2.Count)
-        {
-            return false;
-        }
-        return tree1.SequenceEqual(tree2);
-    }
+
     public bool LeafSimilar(TreeNode root1, TreeNode root2)
     {
         var treeValues1 = new List<int>();
@@ -28,7 +21,7 @@ public class Solution
         var treeValues2 = new List<int>();
         SearchTree(root2, treeValues2);
                
-        return CompareLists(treeValues1, treeValues2);
+        return treeValues1.SequenceEqual(treeValues2);
     }
 
 }
