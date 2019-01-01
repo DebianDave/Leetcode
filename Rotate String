@@ -1,0 +1,25 @@
+public class Solution 
+{
+    public bool RotateString(string A, string B) 
+    {
+        if(A == B)
+        {
+            return true;
+        }
+        if(A.Length == B.Length)
+        {
+            char[] aCharArray = A.ToCharArray();
+            for(int i=0; i<A.Length; i++)
+            {
+                var temp = aCharArray[0];
+                Array.Copy(aCharArray, 1, aCharArray, 0, aCharArray.Length - 1);
+                aCharArray[aCharArray.Length - 1] = temp;
+                if(String.Equals(new string(aCharArray),B))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
