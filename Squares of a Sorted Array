@@ -1,0 +1,8 @@
+        public int[] SortedSquares(int[] A)
+        {
+            var result = new List<int>();
+            for (int i = 0; i < A.Length; i++)
+                result.Add(A[i] * A[i]);
+            result.Sort();
+            return result.ToArray();
+        }
