@@ -1,0 +1,28 @@
+    public int[] DiStringMatch(string S)
+    {
+        int max = S.Length;
+        int min = 0;
+
+        int[] result = new int[max+1];
+
+        for (int i = 0; i <= S.Length; i++)
+        {
+            if (i == S.Length)
+            {
+                result[i] = max;
+            }
+
+            else if (S[i] == 'I')
+            {
+                result[i] = min;
+                min++;
+            }
+            else
+            {
+                result[i] = max;
+                max--;
+            }
+        }
+
+        return result;
+    }
