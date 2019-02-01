@@ -1,0 +1,11 @@
+public class Solution {
+    public int RepeatedNTimes(int[] A) 
+    {
+        Array.Sort(A);
+        if(A[A.Length/2] == A[A.Length/2+1])
+        {
+            return A[A.Length/2];
+        }
+        return A[A.Length/2-1];
+    }
+}
