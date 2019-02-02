@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+
+public class Solution
+{
+    public bool CanConstruct(string ransomNote, string magazine)
+    {
+        var magCopy = new List<char>();
+        magCopy.AddRange(magazine);
+        for (int i=0; i<ransomNote.Length; i++)
+        {
+            if (magCopy.Contains(ransomNote[i]))
+            {
+                magCopy.Remove(ransomNote[i]);
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
