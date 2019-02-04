@@ -1,0 +1,25 @@
+using System;
+
+public class Solution
+{
+    public int MissingNumber(int[] nums)
+    {
+        if(nums.Length == 1)
+        {
+            if(nums[0] == 0)
+            {
+                return 1;
+            }
+            return 0;
+        }
+        Array.Sort(nums);
+        for(int i=0; i<nums.Length; i++)
+        {
+            if(nums[i] != i)
+            {
+                return i;
+            }
+        }
+        return nums.Length;
+    }
+}
