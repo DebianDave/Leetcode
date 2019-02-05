@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+
+public class Solution
+{
+    public int[] Intersect(int[] nums1, int[] nums2)
+    {
+        if(nums1 == null || nums2 == null || nums1.Length == 0 || nums2.Length == 0)
+        {
+            return new int[0];
+        }
+
+        var list1 = new List<int>();
+        list1.AddRange(nums1);
+
+        var list2 = new List<int>();
+        list2.AddRange(nums2);
+
+        var result = new List<int>();
+        foreach(var num in list1)
+        {
+            if(list2.Contains(num))
+            {
+                result.Add(num);
+                list2.Remove(num);
+            }
+        }
+        return result.ToArray();
+    }
+}
