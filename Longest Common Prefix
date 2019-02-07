@@ -1,0 +1,39 @@
+using System;
+
+public class Solution
+{
+    public string LongestCommonPrefix(string[] strs)
+    {
+        if(strs.Length == 0 || strs[0] == null)
+        {
+            return "";
+        }
+        if(strs.Length == 1)
+        {
+            return strs[0];
+        }
+        string result = "";
+        int minLength = int.MaxValue;
+        foreach(var str in strs)
+        {
+            if(str.Length <minLength)
+            {
+                minLength = str.Length;
+            }
+        }
+        for(int i=0; i<minLength; i++)
+        {
+            char temp = strs[0][i];
+            Console.WriteLine(temp);
+            foreach (var str in strs)
+            {
+                if(str[i] != temp)
+                {
+                    return result;
+                }
+            }
+            result += temp;
+        }
+        return result;
+    }
+}
