@@ -1,0 +1,78 @@
+
+using System;
+using System.Collections.Generic;
+/**
+* Definition for singly-linked list.
+* public class ListNode {
+*     public int val;
+*     public ListNode next;
+*     public ListNode(int x) { val = x; }
+* }
+*/
+public class Solution
+{
+    public ListNode MergeTwoLists(ListNode l1, ListNode l2)
+    {
+        if (l1 == null && l2 == null)
+        {
+            return null;
+        }
+        if(l1 == null)
+        {
+            return l2;
+        }
+        if(l2 == null)
+        {
+            return l1;
+        }
+        
+        var listNodeList = CreateListFromLinkList(l1, l2);
+        
+        var headNode = new ListNode(listNodeList[0]);
+        if(listNodeList.Count == 1)
+        {
+            return headNode;
+        }
+        
+        var currNode = new ListNode(listNodeList[1]);
+        
+        headNode.next = currNode;
+        
+        for(int i = 2; i<listNodeList.Count; i++)
+        {
+            currNode.next = new ListNode(listNodeList[i]);
+            currNode = currNode.next;
+        }
+
+        return headNode;
+    }
+
+    private List<int> CreateListFromLinkList(ListNode l1, ListNode l2)
+    {
+        var result = new List<int>();
+        while (l1 != null && l2 != null)
+        {
+            if (l1.val <= l2.val)
+            {
+                result.Add(l1.val);
+                l1 = l1.next;
+            }
+            else
+            {
+                result.Add(l2.val);
+                l2 = l2.next;
+            }
+        }
+        while (l1 != null)
+        {
+            result.Add(l1.val);
+            l1 = l1.next;
+        }
+        while (l2 != null)
+        {
+            result.Add(l2.val);
+            l2 = l2.next;
+        }
+        return result;
+    }
+}
