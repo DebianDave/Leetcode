@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+
+public class Solution
+{
+    public string[] FindWords(string[] words)
+    {
+        var qLevel = new List<char> { 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P' };
+        var aLevel = new List<char> { 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L' };
+        var zLevel = new List<char> { 'Z', 'X', 'C', 'V', 'B', 'N', 'M' };
+        var correctWords = new List<string>();
+
+        foreach (var word in words)
+        {
+            if(word == string.Empty)
+            {
+                break;
+            }
+
+            char temp = word[0];
+            
+            if(qLevel.Contains(char.ToUpper(temp)))
+            {
+                if(LevelCheck(word, qLevel) == true)
+                {
+                    correctWords.Add(word);
+                }
+            }
+            else if(aLevel.Contains(char.ToUpper(temp)))
+            {
+                if(LevelCheck(word, aLevel) == true)
+                {
+                    correctWords.Add(word);
+                }    
+            }
+            else
+            {
+                if (LevelCheck(word, zLevel) == true)
+                {
+                    correctWords.Add(word);
+                }
+            }
+        }
+
+        var result = new string[correctWords.Count];
+
+        for (int i=0; i< correctWords.Count; i++)
+        {
+            result[i] = correctWords[i];
+        }
+        return result;
+    }
+
+    private bool LevelCheck(string word, List<char> level)
+    {
+        foreach(var letter in word)
+        {
+            if(level.Contains(char.ToUpper(letter)) == false)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
