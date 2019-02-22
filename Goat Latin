@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public class Solution
+{
+    public string ToGoatLatin(string S)
+    {
+        var s = S.Split(' ');
+        var result = new List<string>();
+        //var vowels = new HashSet<string> {"a", "e", "i", "o", "u"};
+        var consonants = new HashSet<string>
+            {"b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"};
+        for (int i=0; i<s.Length; i++)
+        {
+            var temp = s[i];
+            var firstLetter = temp[0].ToString();
+            if (consonants.Contains(firstLetter.ToLower()))
+            {
+                temp = temp.Substring(1) + firstLetter;
+            }
+            temp += "ma";
+            for (int j = i + 1; j > 0; j--)
+            {
+                temp += "a";
+            }
+            result.Add(temp);
+        }
+
+        return string.Join(" ", result);
+    }
+}
