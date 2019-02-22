@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public class Solution
+{
+    public string[] FindRelativeRanks(int[] nums)
+    {
+        int index = 0;
+        var map = nums.ToDictionary(x => x, x => index++);
+        var sortedMap = map.OrderByDescending(x => x.Key);
+        var result = new string[nums.Length];
+        int place = 1;
+        foreach (var elem in sortedMap)
+        {
+            if (place == 1) result[elem.Value] = "Gold Medal";
+            else if (place == 2) result[elem.Value] = "Silver Medal";
+            else if (place == 3) result[elem.Value] = "Bronze Medal";
+            else result[elem.Value] = place.ToString();
+            place++;
+        }
+        return result;
+    }
+}
