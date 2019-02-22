@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+
+public class Solution
+{
+    public bool CheckPerfectNumber(int num)
+    {
+        if (num == 0 || num == 1)
+        {
+            return false;
+        }
+        var divisors = FindDivisors(num);
+        return (divisors.Sum() == num);
+    }
+
+    private List<int> FindDivisors(int num)
+    {
+        var result = new List<int>();
+        for(int i=1; i<num; i++)
+        {
+            if (num % i == 0)
+            {
+                result.Add(i);
+            }
+        }
+        return result;
+    }
+}
