@@ -1,0 +1,25 @@
+public class Solution
+    {
+        public int RemoveDuplicates(int[] nums)
+        {
+            int length = nums.Length;
+            if (length == 0)
+            {
+                return 0;
+            }
+
+            int i = 0;
+            var set = new HashSet<int>();
+            for (int j=0; j<length; j++)
+            {
+                if (set.Contains(nums[j]) == false)
+                {
+                    set.Add(nums[j]);
+                    nums[i] = nums[j];
+                    i++;
+                }
+            }
+
+            return i;
+        }
+    }
