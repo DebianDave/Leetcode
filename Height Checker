@@ -1,0 +1,17 @@
+public class Solution {
+    public int HeightChecker(int[] heights) 
+    {  
+        var heightsCopy = new int[heights.Length];
+        heights.CopyTo(heightsCopy,0);
+        Array.Sort(heights);
+        int count = 0;
+        for(int i=0; i<heights.Length; i++)
+        {
+            if(heights[i] != heightsCopy[i])
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+}
