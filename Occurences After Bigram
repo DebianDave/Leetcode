@@ -1,0 +1,19 @@
+using System;
+public class Solution {
+    public string[] FindOcurrences(string text, string first, string second) 
+    {
+        string[] words = text.Split(" ");
+        var resultList = new List<string>();
+        for(int i=0; i+2<words.Length; i++)
+        {
+            if(words[i]==first)
+            {
+                if(words[i+1]==second)
+                {
+                    resultList.Add(words[i+2]);
+                }
+            }
+        }
+        return resultList.ToArray();
+    }
+}
