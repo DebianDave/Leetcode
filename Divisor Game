@@ -1,0 +1,20 @@
+public class Solution {
+    public bool DivisorGame(int N) 
+    {
+        bool alice = false;
+        while(N>1)
+        {
+            bool playAgain = false;
+            for(int i=1; i<=N && playAgain == false; i++)
+            {
+                if(N%i == 0)
+                {
+                    N = N - i;
+                    alice = !alice;
+                    playAgain = true;
+                }
+            }
+        }
+        return alice;    
+    }
+}
