@@ -1,0 +1,20 @@
+public class Solution {
+    public int[] DistributeCandies(int candies, int num_people) 
+    {
+        var result = new int[num_people];
+        var person = 0;
+        var desired = 1;
+
+        while(candies-desired>0)
+        {
+            result[person] += desired;
+            candies -= desired;
+            desired++;
+            person++;
+            person = person % num_people;
+        }
+        result[person] += candies;
+
+        return result;
+    }
+}
