@@ -1,0 +1,37 @@
+public class Solution 
+{
+    public int MaxNumberOfBalloons(string text) 
+    {
+        if(string.IsNullOrEmpty(text) == true)
+        {
+            return 0;
+        }
+        var placeHolder = new int[5];
+        for(int i=0; i<text.Length; i++)
+        {
+            switch(char.ToLower(text[i]))
+            {
+                case 'b':
+                    placeHolder[0]++;
+                    break;
+                case 'a':
+                    placeHolder[1]++;
+                    break;
+                case 'l':
+                    placeHolder[2]++;
+                    break;
+                case 'o':
+                    placeHolder[3]++;
+                    break;
+                case 'n':
+                    placeHolder[4]++;
+                    break;
+            }
+        }
+
+        placeHolder[2] = (placeHolder[2] / 2);
+        placeHolder[3] = (placeHolder[3] / 2);
+
+        return placeHolder.Min();
+    }
+}
