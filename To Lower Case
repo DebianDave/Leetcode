@@ -1,0 +1,19 @@
+public class Solution {
+    public string ToLowerCase(string str) 
+    {
+        var result = new StringBuilder();
+        for(int i=0; i<str.Length; i++)
+        {
+            var temp = (int)(str[i]);
+            if(temp >= 65 && temp<=90)
+            {
+                result.Append((char)(temp+32));
+            }
+            else
+            {
+                result.Append((char)temp);
+            }
+        }
+        return result.ToString();
+    }
+}
