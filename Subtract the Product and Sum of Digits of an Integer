@@ -1,0 +1,39 @@
+public class Solution {
+    public int SubtractProductAndSum(int n) 
+    {
+        var listOfNums = BreakIntIntoParts(n);
+
+        return ProductOfDigits(listOfNums) - SumOfDigits(listOfNums);
+    }
+
+    public List<int> BreakIntIntoParts(int n)
+    {
+        var listOfNums = new List<int>();
+        while(n>0)
+        {
+            listOfNums.Add(n%10);
+            n = n/10;
+        }
+        return listOfNums;
+    }
+
+    public int ProductOfDigits(List<int> listOfNums)
+    {
+        int result = 1;
+        foreach (var num in listOfNums)
+        {
+            result *= num;
+        }
+        return result;
+    }
+
+    public int SumOfDigits(List<int> listOfNums)
+    {
+        int result = 0;
+        foreach (var num in listOfNums)
+        {
+            result += num;
+        }
+        return result;
+    }
+}
