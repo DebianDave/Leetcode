@@ -1,7 +1,7 @@
 public class Solution {
     public int[] DecompressRLElist(int[] nums) 
     {
-        if(nums == null || nums.Length <= 2 || nums.Length % 2 != 0)
+        if(nums == null || nums.Length < 2 || nums.Length % 2 != 0)
         {
             return nums;
         }
