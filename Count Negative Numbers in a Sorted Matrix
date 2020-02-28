@@ -1,0 +1,16 @@
+class Solution {
+    public int countNegatives(int[][] grid) {
+        int negNumbers = 0;
+        for(int i=0; i<grid.length; i++){
+            int firstNeg = grid[i].length;
+            for(int j=0; j<grid[i].length; j++){
+                if(grid[i][j]<0){
+                    firstNeg = j;
+                    break;
+                }
+            }
+            negNumbers+=grid[i].length-firstNeg;
+        }
+        return negNumbers;
+    }
+}
