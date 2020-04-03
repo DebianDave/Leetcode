@@ -1,0 +1,27 @@
+public class Solution {
+    public bool IsHappy(int n) 
+    {
+        switch(n)
+        {
+            case(1):
+                return true;
+                break;
+            case(4):
+                return false;
+                break;
+            default:
+                return IsHappy(SumOfSquares(n));
+        }
+    }
+    
+    private int SumOfSquares(int n) 
+    {
+        int sum=0;
+        while(n!=0)
+        {
+            sum += (n % 10) * (n % 10);
+            n = n/10;
+        }
+        return sum;
+    }
+}
