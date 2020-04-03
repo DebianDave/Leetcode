@@ -1,0 +1,19 @@
+public class Solution {
+    public int SingleNumber(int[] nums) 
+    {
+        var numsList = nums.ToList();
+        var dict = new Dictionary<int,int>();
+        foreach(var num in numsList)
+        {
+            if(dict.ContainsKey(num))
+            {
+                dict[num]++;
+            }
+            else
+            {
+                dict.Add(num,1);
+            }
+        }
+        return dict.FirstOrDefault(x => x.Value == 1).Key;
+    }
+}
