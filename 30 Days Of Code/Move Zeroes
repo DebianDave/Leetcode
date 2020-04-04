@@ -1,0 +1,28 @@
+public class Solution {
+    public void MoveZeroes(int[] nums) 
+    {
+            int insertIndex = 0;
+            int scanIndex = 0;
+
+            while (scanIndex < nums.Length)
+            {
+                while (scanIndex < nums.Length && nums[scanIndex] == 0)
+                {
+                    scanIndex++;
+                }
+
+                if (scanIndex < nums.Length)
+                {
+                    nums[insertIndex] = nums[scanIndex];
+                    insertIndex++;
+                    scanIndex++;
+                }
+            }
+
+            while (insertIndex < nums.Length)
+            {
+                nums[insertIndex] = 0;
+                insertIndex++;
+            }  
+    }
+}
