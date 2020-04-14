@@ -1,0 +1,31 @@
+public class Solution {
+    public int FindMaxLength(int[] nums) 
+    {
+        Dictionary<int,int> places = new Dictionary<int,int>();
+        places.Add(0,-1);
+        int maxLength = 0;
+        int count=0;
+        
+        for(int i=0; i<nums.Length; i++)
+        {
+            if(nums[i]==0)
+            {
+                count-=1;
+            }
+            else
+            {
+                count+=1;    
+            }
+            
+            if(places.ContainsKey(count))
+            {
+                maxLength = Math.Max(maxLength, i-places[count]);
+            }
+            else
+            {
+                places.Add(count, i);    
+            }
+        }
+        return maxLength;
+    }
+}
