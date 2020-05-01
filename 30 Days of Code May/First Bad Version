@@ -19,8 +19,7 @@ public class Solution : VersionControl {
             {
                 left = mid + 1;
             }
-        }
-        
+        }     
         return left;
     }
 }
