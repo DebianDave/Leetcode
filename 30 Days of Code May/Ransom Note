@@ -1,0 +1,33 @@
+public class Solution {
+    public bool CanConstruct(string ransomNote, string magazine) 
+    {
+        var rNLength = ransomNote.Length;
+        var mLength = magazine.Length;
+        
+        if(mLength < rNLength)
+        {
+            return false;
+        }
+        
+        var magCopy = magazine.ToCharArray(); 
+        for(int i=0; i<rNLength; i++)
+        {
+            bool flag = false;
+            for(int j=0; j<mLength; j++)
+            {
+                if(ransomNote[i] == magCopy[j])
+                {
+                    magCopy[j]='0';
+                    flag = true;
+                    break;
+                }
+            }
+            if(flag == false)
+            {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+}
