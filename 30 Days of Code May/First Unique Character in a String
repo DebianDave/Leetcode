@@ -1,0 +1,26 @@
+public class Solution {
+    public int FirstUniqChar(string s) 
+    {
+        var dict = new Dictionary<char, int>();
+        var sLen = s.Length;
+        for(int i=0; i<sLen; i++)
+        {
+            if(dict.ContainsKey(s[i]))
+            {
+                dict[s[i]] = -1;
+            }
+            else
+            {
+                dict.Add(s[i], i);
+            }
+        }
+        for(int i=0; i<sLen; i++)
+        {
+            if(dict.ContainsKey(s[i]) && dict[s[i]]!=-1)
+            {
+                return dict[s[i]];
+            }
+        }
+        return -1;
+    }
+}
