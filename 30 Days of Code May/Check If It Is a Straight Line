@@ -1,0 +1,27 @@
+public class Solution {
+    public bool CheckStraightLine(int[][] coordinates) 
+    {
+        Console.WriteLine($"{coordinates.Length}");
+        if(coordinates.Length == 2)
+        {
+            return true;
+        }
+        var expectedSlope = CalculateSlope(
+            coordinates[1][0], coordinates[1][1], coordinates[0][0], coordinates[0][1]);
+        Console.WriteLine($"expected slope {expectedSlope}");
+        for(int i=2; i<coordinates.Length; i++)
+        {
+            if(CalculateSlope(coordinates[i][0], coordinates[i][1], coordinates[i-1][0], coordinates[i-1][1])
+              != expectedSlope)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public double CalculateSlope(int newX, int newY, int oldX, int oldY)
+    {
+        return (double)(newY-oldY)/(newX-oldX);
+    }
+}
