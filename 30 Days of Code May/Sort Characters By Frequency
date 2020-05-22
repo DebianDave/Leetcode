@@ -1,0 +1,27 @@
+
+public class Solution {
+public string FrequencySort(string s) 
+{
+	Dictionary<char, int> frequency = new Dictionary<char, int>();
+	foreach(char c in s)
+	{
+		if(frequency.ContainsKey(c))
+		{
+			frequency[c]++;
+		}
+		else
+		{
+			frequency.Add(c, 1);
+		}
+	}
+
+	var keys = frequency.Keys.OrderByDescending(x => frequency[x]);
+	StringBuilder sb = new StringBuilder();
+	foreach(var key in keys)
+	{
+		sb.Append(key, frequency[key]);
+	}
+
+	return sb.ToString();
+}
+}
