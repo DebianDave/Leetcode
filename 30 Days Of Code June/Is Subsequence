@@ -1,0 +1,21 @@
+public class Solution {
+    public bool IsSubsequence(string s, string t) 
+    {
+        int sLength = s.Length;
+        int tLength = t.Length;
+        
+        int sPtr = 0;
+        int tPtr = 0;
+        
+        while(sPtr < sLength && tPtr < tLength)
+        {
+            if(s[sPtr] == t[tPtr])
+            {
+                sPtr++;
+            }
+            tPtr++;
+        }
+        
+        return sPtr == sLength;
+    }
+}
