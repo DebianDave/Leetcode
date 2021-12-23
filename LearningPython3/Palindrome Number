@@ -1,0 +1,10 @@
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        string = str(x)
+        revString = string[::-1]
+        for i in range(len(string)):
+            if string[i]!=revString[i]:
+                return False
+            if i > (len(string)/2):
+                return True
+        
